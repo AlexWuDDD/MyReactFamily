@@ -22,15 +22,9 @@
   
   <script type="text/babel">
     //创建组件
+    /*
     class Person extends React.Component{
-
-      constructor(props){
-        //构造器是否接收props，是否传递给super,
-        //取决于：是否希望在构造器中通过this访问props
-        super(props)
-        console.log('constructor', this.props)
-      }
-      
+     
       //对标签树精进行类型，必要性的限制
       static propTypes = {
       name: PropTypes.string.isRequired, //限制name必传，且为字符串
@@ -60,20 +54,29 @@
         )
       }
     }
-
-
-
-    //渲染组件到页面
-    ReactDOM.render(<Person name="tom" speak={speak} age={18} sex="女"/>, document.getElementById('test1'));
-    ReactDOM.render(<Person name="jerry" age={20} sex="男"/>, document.getElementById('test2'));
-    
-    const p = {name:'老刘', age: 18,sex:'女'}
-    //语法糖
-    ReactDOM.render(<Person {...p}/>, document.getElementById('test3'));
-
-    function speak(){
-      console.log("我说话了")
+*/
+    function Person(props){
+      const {name, sex, age} = props
+      return (
+        <ul>
+          <li>姓名：{name}</li>
+          <li>性别：{sex}</li>
+          <li>年龄：{age}</li>
+        </ul>
+      )
     }
+
+    Person.propTypes = {
+
+    }
+
+    Person.defaultProps = {
+      sex: '男',
+      age: 18
+    }
+    //渲染组件到页面
+    ReactDOM.render(<Person name="jerry"/>, document.getElementById('test1'));
+    
   </script>
 </body>
 </html>
