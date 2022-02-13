@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Navigate, Route, Routes} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import Home from "./pages/Home"  //Home是路由组件
 import About from "./pages/About"
 import Test from "./pages/Test"
@@ -34,7 +34,6 @@ export default class App extends Component {
                   <Route path="/about" element={<About/>}/>
                   <Route path="/home" element={<Home/>}/>
                   <Route path="/test" element={<Test/>}/>
-                  <Route path="*" element={<Navigate to="/about"/>}/>
                 </Routes>
               </div>
             </div>

@@ -36,3 +36,46 @@
         } catch(error){
           console.log('请求出错', error)
         }
+
+## 三、路由的基本使用
+
+    1. 明确好界面中的导航区、展示区
+    2. 导航区的a标签改为Link标签
+        <Link to="/xxxxxx">Demo</Link>
+    3. 展示区写Route标签进行路径的匹配
+        <Routes>
+          <Route path="/xxxxxx" element={<Demo/>}/>
+        </Routes>
+    4. <App/>的最外侧包裹了一个<BrowserRouter>或<HashRouter>
+
+## 四、路由组件与一般组件
+
+      1. 写法不同：
+        一般组件：<Demo/>
+        路由组件：<Route path="/demo" element={<Demo/>}>
+      2. 存放位置不同
+        一般组件：components
+        路由组件：pages
+
+## 五、NavLink与封装NavLink
+
+      1. NavLink可以实现路由链接的高亮，通过className 三目运算符
+      2. 标签体内容是一个特殊的标签属性
+      3. 通过this.props,childeren可以获取标签体内容
+
+## 六、解决多缓存路径刷新页面样式丢失的问题
+
+      1. public/index.html 中引入样式时不屑./写/(常用)
+      2. public/index.html 中引入样式时不屑./写%PUBLIC_URL%(常用)
+      3. 使用HashRouter
+
+## 七、react-router-dom v6 移除Redirect后的解决方案
+
+    <Router>
+      <Routes>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/admin' element={<Admin/>}/>
+        <Route path="*" element={<Navigate to="/login" />} />
+      </Routes>
+    </Router>
+
