@@ -25,7 +25,7 @@ export default class Home extends Component {
         {/* 注册路由 */}
         <Routes>
           <Route path="news" element={<News/>}/>
-          <Route path="message/*" element={<Message/>}/>
+          <Route path="message" element={<Message/>}/>
           <Route path="*" element={<Navigate to="news"/>}/>
         </Routes>  
       </div>
