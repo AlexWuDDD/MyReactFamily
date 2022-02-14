@@ -3,7 +3,7 @@ import React from 'react';
 //引入ReactDOM
 import ReactDOM from 'react-dom';
 
-import { BrowserRouter, HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 //引入App
 import App from './App';
 

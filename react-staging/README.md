@@ -125,4 +125,6 @@
         return <Element params={location} {...props}/>
       }
 
-## 十、
+## 十、BrowserRouter与HashRouter的区别
+
+    ???
