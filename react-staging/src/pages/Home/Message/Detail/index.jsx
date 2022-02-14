@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useParams } from 'react-router-dom'
 
 
 const DetailData = [
@@ -7,20 +8,17 @@ const DetailData = [
   {id: '03', content: '你好, Vue'},
 ]
 
-export default class Detail extends Component {
-  render() {
+export default function Detail() {
     //接收参数
-    console.log(this.props.params)
-    const {id, title} = this.props.params
-    const findResutlt = DetailData.find((detailObj)=>{
-      return detailObj.id === id
-    })
-    return (
-      <ul>
-        <li>ID: {id}</li>
-        <li>TITLE: {title}</li>
-        <li>CONTENT: {findResutlt.content}</li>
-      </ul>
-    )
-  }
+  const {id, title} = useParams()
+  const findResult = DetailData.find((detailObj)=>{
+    return detailObj.id === id
+  })
+  return (
+    <ul>
+      <li>ID: {id}</li>
+      <li>TITLE: {title}</li>
+      <li>CONTENT: {findResult.content}</li>
+    </ul>
+  )
 }

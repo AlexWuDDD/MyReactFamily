@@ -83,3 +83,46 @@
 
       v6版本与v5版本差异较大，以下为V6使用路由嵌套及路由重定向方法,子路由路径不用加"/"，v6中会自动拼接
 
+## 九、向路由组件传递参数
+
+    1. params参数
+
+      路由链接：
+      <Link to={`detail/${message.id}/${message.title}`}>{message.title}</Link>
+      注册路由
+      <Route path="detail/:id/:title" element={<WrapComps el={Detail}/>}/>
+      hook组件：
+      const WrapComps = (props) => {
+        let navigate = useNavigate();
+        let params = useParams();
+        let Element = props.el
+        return <Element params={params} navigate={navigate} {...props}/>
+      }
+
+    2. search参数
+
+      路由链接：
+      <Link to={`detail/?id=${message.id}&title=${message.title}`}>{message.title}</Link>
+      注册路由：
+      <Route path="detail" element={<SerachComps el={Detail}/>}/>
+      hook组件：
+      const SerachComps = (props) => {
+        let [searchParams] = useSearchParams();
+        let Element = props.el
+        return <Element params={searchParams} {...props}/>
+      }
+
+    3. state参数
+
+      路由链接：
+      <Link to='detail' state={{id:message.id, title:message.title}} >{message.title}</Link>
+      注册路由：
+      <Route path="detail" element={<StateComps el={Detail}/>}/>
+      hook组件：
+      const StateComps = (props) => {
+        let location = useLocation();
+        let Element = props.el
+        return <Element params={location} {...props}/>
+      }
+
+## 十、
