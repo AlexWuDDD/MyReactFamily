@@ -1,30 +1,19 @@
-import React, { Component } from 'react'
-import {Button, DatePicker, Space } from 'antd'
-import {WechatOutlined, WeiboOutlined} from '@ant-design/icons';
+import React from 'react'
+import Button from '@mui/material/Button';
 
-const { RangePicker } = DatePicker;
+import './App.css'
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        App...
-        <button>点我</button>
-        <Button type="primary">按钮1</Button>
-        <Button>按钮2</Button>
-        <Button type="link">按钮3</Button>
-        <WechatOutlined />
-        <WeiboOutlined />
-        <Space direction="vertical">
-          <DatePicker onChange={this.onChange} />
-          <RangePicker />
-        </Space>,
-      </div>
-    )
+
+export default function App() {
+
+  const onChange = () => {
+    console.log("onChange");
   }
-
-  onChange = (date, dateString) => {
-    console.log(date, dateString);
-  }
-
+  
+  return (
+    <div>
+      App...
+      <Button onClick={onChange} variant="contained">你好，世界</Button>
+    </div>
+  )
 }
