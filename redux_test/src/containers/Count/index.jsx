@@ -4,14 +4,14 @@ import {
   createIncrementAction, 
   createDecrementAction, 
   createIncrementAsyncAction
-} from "../../redux/count_action"
+} from "../../redux/actions/count"
 
 //引入connect用于连接UI组件与redux
 import {connect} from 'react-redux'
 
 function Count(props) {
 
-  const {count, add, minus, addAsync} = props
+  const {count, add, minus, addAsync, renshu} = props
 
   const myref1 = useRef(null)
 
@@ -43,7 +43,8 @@ function Count(props) {
 
   return (
     <div>
-      <h1>当前求和为: {count}</h1>
+      <h2>我是Count组件, 下方组件总人数为: {renshu}</h2>
+      <h4>当前求和为: {count} </h4>
       <select ref = {myref1}>
         <option value = {1}>1</option>
         <option value = {2}>2</option>
@@ -59,15 +60,7 @@ function Count(props) {
 
 //使用connect()()创建并暴露一个Count的容器组件
 export default connect(
-  state => ({count: state}),
-  //mapDispatchToProps的一般写法
-  // dispatch => ({
-  //   add: number => dispatch(createIncrementAction(number)),
-  //   minus: number => dispatch(createDecrementAction(number)),
-  //   addAsync: (number, time)=> dispatch(createIncrementAsyncAction(number, time))
-  // })
-
-  //mapDispatchToProps的简写
+  state => ({count: state.he, renshu: state.rens.length}),
   {
     add: createIncrementAction,
     minus: createDecrementAction,
