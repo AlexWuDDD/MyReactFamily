@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 //引入store,用于获取redux中保存状态
 import store from "../../redux/store"
 //引入actionCreate，专门用于创建action对象
-import { createIncrementAction, createDecrementAction } from '../../redux/count_action'
+import { createIncrementAction, createDecrementAction, createIncrementAsyncAction } from '../../redux/count_action'
 
 export default function Count() {
 
@@ -33,9 +33,7 @@ export default function Count() {
   //异步加
   const incrementAsync = ()=>{
     const value = myref1.current.value*1
-    setTimeout(()=>{
-      store.dispatch(createIncrementAction(value))
-    },1000)
+    store.dispatch(createIncrementAsyncAction(value, 1000))
   }
 
 
