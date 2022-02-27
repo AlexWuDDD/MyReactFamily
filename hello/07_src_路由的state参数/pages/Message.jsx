@@ -1,10 +1,8 @@
 
 import React,{useState} from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Message() {
-
-  const navigate = useNavigate();
 
   const [messages] = useState([
     {id: '001', title: '消息1', content: '锄禾日当午'},
@@ -13,17 +11,6 @@ export default function Message() {
     {id: '004', title: '消息4', content: '粒粒皆辛苦'},
   ])
 
-  function checkDetail(message){
-    // console.log(message);
-    navigate('detail', {
-      replace: false,
-      state:{
-        id: message.id,
-        title: message.title,
-        content: message.content
-      }
-    });
-  }
 
   return (
     <div>
@@ -37,8 +24,6 @@ export default function Message() {
                   title: message.title,
                   content: message.content
                 }}>{message.title}</Link>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <button onClick={()=>checkDetail(message)}>查看详情</button>
               </li>
             )
           })

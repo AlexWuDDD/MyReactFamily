@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useInRouterContext, useRoutes} from "react-router-dom";
+import { NavLink, useRoutes} from "react-router-dom";
 import {routes} from "./routes";
 import Header from "./components/Header";
 
@@ -7,7 +7,6 @@ export default function App() {
 
   //根据路由表直接生成路由
   const element = useRoutes(routes);
-  console.log('@', useInRouterContext());
 
   return (
     <div>

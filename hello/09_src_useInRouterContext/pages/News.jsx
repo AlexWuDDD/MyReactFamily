@@ -1,10 +1,6 @@
 import React from "react";
-import { useNavigationType, useResolvedPath } from "react-router-dom"; 
 
 export default function News() {
-
-  console.log(useNavigationType())
-  console.log(useResolvedPath('/user?id=001'))
   return (
     <div>
       <ul>
